@@ -6,11 +6,12 @@ import './FindParkings.css';
 import SearchBar from '../SearchBar/SearchBar'
 import ParkingCards from './ParkingCards/ParkingCards'
 import Loader from '../Loader/Loader'
+import Pagination from './Pagination/Pagination'
 
 export default function FindParkings( ) {
 
     const { loading } = useSelector((state) => ({ ...state.homeReducer }))
-    const { parkings, total_pages, page, location } = useSelector((state) => ({ ...state.parkingsReducer }))
+    const { parkings, locations } = useSelector((state) => ({ ...state.parkingsReducer }))
 
     return (
         <div className='fp_container'>
@@ -29,13 +30,11 @@ export default function FindParkings( ) {
 
                 <div className='fp_location_pagination_container'>
                     <div className='fp_location_container'>
-                        Current Location:  
-                        <span>{` ${location}`}</span>
+                        Found locations:  
+                        <span>{` ${locations.join(', ')}`}</span>
                     </div>
 
-                    <div>
-                        {`First 1  2  3  4  ... ${total_pages} Last`}
-                    </div>
+                    <Pagination/>
                 </div>
 
                 <ParkingCards parkings={parkings}/>

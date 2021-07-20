@@ -3,7 +3,7 @@ import React from 'react';
 import './ParkingCard.css';
 
 import noImage from '../../../../utils/img/find/no_image.png'
-import yelp_logo from '../../../../utils/img/find/yelp_logo.png'
+import yelp_logo from '../../../../utils/img/find/yelp_logo.svg'
 
 export default function ParkingCard( { parking } ) {
 
@@ -34,7 +34,11 @@ export default function ParkingCard( { parking } ) {
                             <span className='parking_card_raiting_italic'>{Math.round((parking.review_count * parking.rating) / (parking.review_count + 1) * 10) / 10}</span>
                         </div>
                     </div>
-                    <img src={yelp_logo} alt="yelp_logo"/>
+                    
+                    <a href={parking.url}  target="_blank" rel="nofollow noopener noreferrer">
+
+                        <img src={yelp_logo} alt="yelp_logo"/>
+                    </a>
                 </div>
             </div>
         </div>

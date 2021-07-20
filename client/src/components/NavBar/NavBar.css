@@ -55,10 +55,6 @@
     margin-bottom: 0.2rem;
 }
 
-.links_container > a:hover div{
-    background-color: #F3F3F3;
-}
-
 
 .links_container span{
     margin: 0rem 0.5rem;
@@ -70,4 +66,8 @@
 .links_container > a:hover span{
     text-shadow: 0 0 10px #F3F3F3;
     color: #F8C342;
+}
+
+.navbar_selected_link > div {
+    background-color: #F3F3F3;
 }

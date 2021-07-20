@@ -51,7 +51,7 @@ export default function SearchBar( { match } ) {
                 history.push('/search')
             }
         }
-        
+        setSearchInput('')
     }
 
     return (

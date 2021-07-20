@@ -11,8 +11,11 @@ const { YELP_SEARCH_URL_PARKING, YELP_API_KEY, YELP_SEARCH_LIMIT, YELP_SEARCH_TE
 
 router.get("/", async (req, res) => {
 
-    const { searched_location } = req.query
-
+    let { searched_location, offset } = req.query
+    if(!offset) {
+        offset = 0
+    }
+    console.log(offset * YELP_SEARCH_LIMIT)
     try {
         const response = await axios.get(YELP_SEARCH_URL_PARKING, { 
             params: { 
@@ -20,6 +23,7 @@ router.get("/", async (req, res) => {
                 sort_by: YELP_SEARCH_SORT_BY,
                 location: searched_location,
                 limit: YELP_SEARCH_LIMIT,
+                offset: offset * YELP_SEARCH_LIMIT,
             },
             headers: {
                 Authorization: 'Bearer ' + YELP_API_KEY,
@@ -28,7 +32,11 @@ router.get("/", async (req, res) => {
 
         const businesses = response.data.businesses
         const total = response.data.total
-        const pages = Math.ceil( response.data.total / YELP_SEARCH_LIMIT)
+        let pages = Math.ceil( response.data.total / YELP_SEARCH_LIMIT)
+
+        if(pages > 1) {
+            pages = pages -1
+        }
 
         const lower10parkings = get10LowerParkings(businesses)
 
@@ -46,14 +54,91 @@ router.get("/", async (req, res) => {
             }
         })
 
+        const locations = []
 
+        filteredParkings.forEach( parking => {
+            if(!locations.includes(parking.city)) {
+                locations.push(parking.city)
+            }
+        })
 
-        res.send( { parkings: filteredParkings, total, pages, searched_location } )
+        const page = offset + 1
+
+        res.send( { parkings: filteredParkings, total, pages, page, searched_location, locations } )
 
     } catch (error) {
+        console.log(error)
         res.status(400).send( {message: 'We couldn´t find any parking in that location, please try again'} )
     }
 
 });
+
+router.get("/nearby", async (req, res) => {
+
+    let { position, offset } = req.query
+    if(!offset) {
+        offset = 0
+    }
+    
+    try {
+        const response = await axios.get(YELP_SEARCH_URL_PARKING, { 
+            params: { 
+                term: YELP_SEARCH_TERM,
+                sort_by: YELP_SEARCH_SORT_BY,
+                latitude: position.latitude,
+                longitude: position.longitude,
+                limit: YELP_SEARCH_LIMIT,
+                offset: offset * YELP_SEARCH_LIMIT,
+            },
+            headers: {
+                Authorization: 'Bearer ' + YELP_API_KEY,
+              }
+        });
+
+        const businesses = response.data.businesses
+        const total = response.data.total
+        let pages = Math.ceil( response.data.total / YELP_SEARCH_LIMIT)
+
+        if(pages > 1) {
+            pages = pages -1
+        }
+
+        const lower10parkings = get10LowerParkings(businesses)
+
+        const filteredParkings = lower10parkings.map(parking => {
+            return {
+                id: parking.id,
+                name: parking.name,
+                address: parking.location.display_address,
+                city: parking.location.city,
+                rating: parking.rating,
+                review_count: parking.review_count,
+                url: parking.url,
+                image_url: parking.image_url,
+                score: Math.round((parking.review_count * parking.rating) / (parking.review_count + 1) * 10) / 10
+            }
+        })
+
+        const locations = []
+
+        filteredParkings.forEach( parking => {
+            if(!locations.includes(parking.city)) {
+                locations.push(parking.city)
+            }
+        })
+
+        const page = offset + 1
+
+        const searched_location = locations[0]
+
+        res.send( { parkings: filteredParkings, total, pages, page, searched_location, locations } )
+
+    } catch (error) {
+        console.log(error)
+        res.status(400).send( {message: 'We couldn´t find any parking in that location, please try again'} )
+    }
+
+});
+
 
 module.exports = router;

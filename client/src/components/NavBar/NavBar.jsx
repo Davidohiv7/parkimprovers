@@ -1,11 +1,31 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+
+import { getNearByParkings } from '../../actions/parking_actions'
 
 import './NavBar.css';
 
 import { AiFillCar } from 'react-icons/ai';
 
 export default function NavBar() {
+
+    const dispatch = useDispatch();
+
+    const pathname = useLocation().pathname
+
+    useEffect(
+        () => {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const currentPosition = {
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                }
+                dispatch(getNearByParkings(currentPosition))
+            })
+        },
+    []);
+
     return (
         <div className='navbar_container'>
             <Link className='navbar_link' to={'/'}> 
@@ -16,17 +36,17 @@ export default function NavBar() {
 
             <div className='links_container'>
 
-                <Link className='navbar_links' to={'/'}>
+                <Link className={pathname === '/' ? 'navbar_selected_link' : undefined} to={'/'}>
                     <div/>
                     <span>Home</span>
                 </Link>
 
-                <Link to={'/search'}>
+                <Link className={pathname.includes('/search') ? 'navbar_selected_link' : undefined} to={'/search'}>
                     <div/>
                     <span>Find Parkings</span>
                 </Link>
 
-                <Link to={'/favourites'}>
+                <Link className={pathname.includes('/favourites') ? 'navbar_selected_link' : undefined} to={'/favourites'}>
                     <div/>
                     <span>Favourites</span>
                 </Link>
