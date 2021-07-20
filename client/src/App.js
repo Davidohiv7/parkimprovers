@@ -6,6 +6,7 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar'
 import Footer from './components/Footer/Footer'
 import Home from './components/Home/Home'
+import FindParkings from './components/FindParkings/FindParkings'
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
       <Route
         exact path='/'
         component={Home}
+      />
+
+      <Route
+        path='/search'
+        component={FindParkings}
       />
 
       <Route

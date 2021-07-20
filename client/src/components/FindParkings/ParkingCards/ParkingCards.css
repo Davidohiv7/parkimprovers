@@ -1,0 +1,40 @@
+
+.parking_cards_container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 2rem;
+    column-gap: 1rem;
+}
+
+@media only screen and (max-width: 1450px) {
+
+    .parking_cards_container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+}
+
+
+@media only screen and (max-width: 1200px) {
+
+    .parking_cards_container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media only screen and (max-width: 900px) {
+
+    .parking_cards_container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media only screen and (max-width: 400px) {
+
+    .parking_cards_container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}

@@ -1,0 +1,84 @@
+
+.parking_card_container{
+    height: 370px;
+    width: 270px;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 12px 15px;
+}
+
+.parking_card_container > img{
+    margin-top: 0.8rem;
+    width: 90%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.parking_card_data_container {
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.parking_card_data_container > span{
+    margin-top: 0.5rem;
+    text-align: start;
+    font-size: 1rem;
+    height: 3rem;
+}
+
+.parking_card_data_container > hr{
+    border: 1px solid rgba(255, 255, 255, 0.1);;
+    width: 100%;
+}
+
+.parking_card_location_container {
+    display: flex;
+    flex-direction: column;
+}
+
+.parking_card_location_container > span{
+    text-align: start;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.parking_card_bottom_container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.parking_card_bottom_container > img {
+    height: 2.5rem;
+    margin-top: 2rem;
+}
+
+.parking_card_bottom_container span {
+    font-size: 0.9rem;
+}
+
+.parking_card_raiting_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.parking_card_raiting_container span {
+    font-weight: 400;
+}
+
+.parking_card_raiting_italic{
+    font-weight: 200 !important;
+    font-style: italic;
+}
+
+.parking_card_container:hover {
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: rgba(0, 0, 0, 0.75) 0px 28px 75px 54px;
+}

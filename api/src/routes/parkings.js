@@ -2,37 +2,24 @@ const { Router } = require('express');
 const axios = require('axios')
 const router = Router();
 
-var geoip = require('geoip-lite');
 
 var { get10LowerParkings } = require('../utils/array');
 
 const { YELP_SEARCH_URL_PARKING, YELP_API_KEY, YELP_SEARCH_LIMIT, YELP_SEARCH_TERM, YELP_SEARCH_SORT_BY } = process.env
 
-router.get("/ip", async (req, res) => {
-
-    // const ip = (req.headers['x-forwarded-for'] || req.connection.remoteAddress || '').split(',')[0].trim();
-    const ip = '186.84.22.236'
-
-    const location = await geoip.lookup(ip);
-
-    console.log(location.city)
 
 
-    res.send('Aqui obtienes la IP')
+router.get("/", async (req, res) => {
 
-});
-
-router.get("/parkings", async (req, res) => {
+    const { searched_location } = req.query
 
     try {
-
         const response = await axios.get(YELP_SEARCH_URL_PARKING, { 
             params: { 
                 term: YELP_SEARCH_TERM,
                 sort_by: YELP_SEARCH_SORT_BY,
-                location: 'Los Angeles',
+                location: searched_location,
                 limit: YELP_SEARCH_LIMIT,
-                offset: 2
             },
             headers: {
                 Authorization: 'Bearer ' + YELP_API_KEY,
@@ -50,19 +37,21 @@ router.get("/parkings", async (req, res) => {
                 id: parking.id,
                 name: parking.name,
                 address: parking.location.display_address,
+                city: parking.location.city,
                 rating: parking.rating,
                 review_count: parking.review_count,
                 url: parking.url,
                 image_url: parking.image_url,
-
+                score: Math.round((parking.review_count * parking.rating) / (parking.review_count + 1) * 10) / 10
             }
         })
 
-        res.send( { parkings: filteredParkings, total, pages } )
+
+
+        res.send( { parkings: filteredParkings, total, pages, searched_location } )
 
     } catch (error) {
-        console.log(error)
-        res.send(error)
+        res.status(400).send( {message: 'We couldn´t find any parking in that location, please try again'} )
     }
 
 });

@@ -1,9 +1,15 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import './SearchBar.css';
 
 
+import { searchParkings } from '../../actions/parking_actions'
+
+
 export default function SearchBar() {
+
+    const dispatch = useDispatch();
 
     const [searchInput, setSearchInput] = useState('');
 
@@ -13,7 +19,7 @@ export default function SearchBar() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        alert(searchInput)
+        dispatch(searchParkings(searchInput))
     }
 
     return (
