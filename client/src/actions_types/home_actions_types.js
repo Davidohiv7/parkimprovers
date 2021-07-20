@@ -1,1 +1,2 @@
-export const ACTION_TYPE = 'ACTION_TYPE';
+export const SEARCH_ERROR_MESSAGE = 'SEARCH_ERROR_MESSAGE';
+export const SET_LOADING = 'SET_LOADING';

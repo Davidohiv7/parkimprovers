@@ -5,9 +5,11 @@ import './FindParkings.css';
 
 import SearchBar from '../SearchBar/SearchBar'
 import ParkingCards from './ParkingCards/ParkingCards'
+import Loader from '../Loader/Loader'
 
 export default function FindParkings( ) {
 
+    const { loading } = useSelector((state) => ({ ...state.homeReducer }))
     const { parkings, total_pages, page, location } = useSelector((state) => ({ ...state.parkingsReducer }))
 
     return (
@@ -20,6 +22,8 @@ export default function FindParkings( ) {
             </div>
 
             {
+                loading ? 
+                <Loader size={100} color={'#F8C342'} margin={'10rem 0rem 0rem 0rem'}/> :
                 parkings.length > 0 ?
                 <div className='fp_content_container'>
 
@@ -36,13 +40,14 @@ export default function FindParkings( ) {
 
                 <ParkingCards parkings={parkings}/>
 
-            </div> :
-            <div className='fp_content_no_results'>
-                <p>Ooops...</p> 
-                <span>There are no parkings in the searched location, please try searching a City.</span> 
-            </div>
-            }
+                </div> :
 
+                <div className='fp_content_no_results'>
+                    <p>Ooops...</p> 
+                    <span>There are no parkings in the searched location, please try searching a City.</span> 
+                </div>
+            }
+            
         </div>
         );
   };

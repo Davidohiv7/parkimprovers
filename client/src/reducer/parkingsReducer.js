@@ -1,4 +1,4 @@
-import { SEARCH_PARKING } from '../actions_types/parking_actions_types'
+import { SEARCH_PARKING, SEARCH_PARKING_NO_RESULTS } from '../actions_types/parking_actions_types'
 
 const initialState = {
     parkings: [],
@@ -16,6 +16,15 @@ const parkingsReducer = (state = initialState, action = {}) => {
                 total_pages: action.payload.pages,
                 page: 1,
                 location: action.payload.searched_location
+            }
+        }
+        case SEARCH_PARKING_NO_RESULTS: {
+            return {
+                ...state,
+                parkings: [],
+                total_pages: null,
+                page: null,
+                location: null
             }
         }
         default:

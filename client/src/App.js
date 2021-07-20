@@ -7,6 +7,7 @@ import NavBar from './components/NavBar/NavBar'
 import Footer from './components/Footer/Footer'
 import Home from './components/Home/Home'
 import FindParkings from './components/FindParkings/FindParkings'
+import Favourites from './components/Favourites/Favourites'
 
 function App() {
   return (
@@ -25,6 +26,11 @@ function App() {
       <Route
         path='/search'
         component={FindParkings}
+      />
+
+      <Route
+        path='/favourites'
+        component={Favourites}
       />
 
       <Route
