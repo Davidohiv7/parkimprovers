@@ -1,0 +1,40 @@
+.homeBottom_container {
+    background-color: white;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homeBottom_title {
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 5rem 0rem 2rem 0rem;
+}
+
+.homeBottom_features_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 1rem;
+    column-gap: 5rem;
+    margin-bottom: 5rem;
+}
+
+.homeBottom_features_container > div{
+    justify-self: start;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: #695b37;
+}
+
+.homeBottom_features_container > div:hover {
+    color: #fd9800;
+    text-shadow: 0 0 10px #919191;
+}
+
+.homeBottom_features_icons {
+    margin-right: 1rem;
+}
+
+
