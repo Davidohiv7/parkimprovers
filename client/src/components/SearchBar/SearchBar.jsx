@@ -9,7 +9,7 @@ import { searchParkings } from '../../actions/parking_actions'
 import { searchErrorMessage } from '../../actions/home_actions'
 
 
-export default function SearchBar( {} ) {
+export default function SearchBar() {
 
     const dispatch = useDispatch();
     const location = useLocation()
@@ -31,6 +31,7 @@ export default function SearchBar( {} ) {
                 setAutoHide(timeOut)
             }
         },
+    // eslint-disable-next-line
     [messages]);
 
 

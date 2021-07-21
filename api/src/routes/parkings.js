@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
     if(!offset) {
         offset = 0
     }
-    console.log(offset * YELP_SEARCH_LIMIT)
+
     try {
         const response = await axios.get(YELP_SEARCH_URL_PARKING, { 
             params: { 
@@ -67,7 +67,7 @@ router.get("/", async (req, res) => {
         res.send( { parkings: filteredParkings, total, pages, page, searched_location, locations } )
 
     } catch (error) {
-        console.log(error)
+
         res.status(400).send( {message: 'We couldn´t find any parking in that location, please try again'} )
     }
 
@@ -134,7 +134,6 @@ router.get("/nearby", async (req, res) => {
         res.send( { parkings: filteredParkings, total, pages, page, searched_location, locations } )
 
     } catch (error) {
-        console.log(error)
         res.status(400).send( {message: 'We couldn´t find any parking in that location, please try again'} )
     }
 

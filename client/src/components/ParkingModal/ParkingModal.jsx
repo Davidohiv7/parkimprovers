@@ -44,7 +44,6 @@ export default function ParkingModal( { match } ) {
                         loading: false,
                     })
                 } catch (error) {
-                    console.log(error)
                     setModalState({
                         ...modalState,
                         loading: false,
@@ -53,6 +52,7 @@ export default function ParkingModal( { match } ) {
             }
             getDetails(id)
         },
+    // eslint-disable-next-line
     []);
 
     function handleExit(e) {

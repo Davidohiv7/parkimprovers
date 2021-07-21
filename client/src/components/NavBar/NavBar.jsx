@@ -25,6 +25,7 @@ export default function NavBar() {
                 dispatch(getNearByParkings(currentPosition))
             })
         },
+    // eslint-disable-next-line
     []);
 
     return (
