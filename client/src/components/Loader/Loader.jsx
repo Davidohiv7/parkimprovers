@@ -15,6 +15,6 @@ export default function Loader({ size, color, margin, bgcolor}) {
     }
 
     return (
-        <div style={loaderStyles} class="loader" />
+        <div style={loaderStyles} className="loader" />
     );
 };

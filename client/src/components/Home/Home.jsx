@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './Home.css';
+import './HomeMobile.css';
 
 import SearchBar from '../SearchBar/SearchBar'
 import HomeBottom from './HomeBottom/HomeBottom'

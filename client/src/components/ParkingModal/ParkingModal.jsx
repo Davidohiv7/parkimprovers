@@ -4,11 +4,17 @@ import { useHistory } from "react-router-dom";
 import axios from 'axios'
 
 import Loader from '../Loader/Loader'
+//Default image
 import no_image from '../../utils/img/modal/modal_no_image.png'
+//Button logos
+import { FiPhone } from 'react-icons/fi';
+import { MdFavoriteBorder } from 'react-icons/md';
+import yelpLogo from '../../utils/img/modal/yelp_logo.svg'
 
 import './ParkingModal.css';
+import './ParkingModalMobile.css';
 
-export default function ParkingModal( { match} ) {
+export default function ParkingModal( { match } ) {
 
     const apiURL = process.env.REACT_APP_API_URL
     const history = useHistory()
@@ -50,10 +56,22 @@ export default function ParkingModal( { match} ) {
     []);
 
     function handleExit(e) {
-        if(e.currentTarget == e.target ) {
+        if(e.currentTarget === e.target ) {
             history.goBack()
         }
     }
+
+    const dataArray = [
+        {title: 'City: ', subtitle: modalState.parkingDetails?.city}, 
+        {title: 'Rating: ', subtitle: modalState.parkingDetails?.rating}, 
+        {title: 'State: ', subtitle: modalState.parkingDetails?.state}, 
+        {title: 'Score: ', subtitle: modalState.parkingDetails?.score}, 
+        {title: 'Country: ', subtitle: modalState.parkingDetails?.country}, 
+        {title: 'Zip Code: ', subtitle: modalState.parkingDetails?.zip_code}, 
+        {title: 'Reviews: ', subtitle: modalState.parkingDetails?.review_count}, 
+        {title: 'Open: ', subtitle: modalState.parkingDetails?.open ? 'Yes' : 'No'}, 
+        {title: 'Phone: ', subtitle: modalState.parkingDetails?.display_phone ? modalState.parkingDetails?.display_phone : 'No registered'},
+    ]  
 
     return (
         <div onClick={handleExit} className='parking_modal_background'>
@@ -75,42 +93,30 @@ export default function ParkingModal( { match} ) {
                                 <span >{modalState.parkingDetails?.name}</span>
                             </div>
                             <div className='parking_modal_data'>
-                                <div>
-                                    <span className='parking_modal_data_title'>City: </span>
-                                    <span className='parking_modal_data_content'>{modalState.parkingDetails?.city}</span>
-                                </div>
-                                <div>
-                                    <span className='parking_modal_data_title'>Rating: </span>
-                                    <span className='parking_modal_data_content'>{modalState.parkingDetails?.rating}</span>
-                                </div>
-                                <div>
-                                    <span className='parking_modal_data_title'>State: </span>
-                                    <span className='parking_modal_data_content'>{modalState.parkingDetails?.state}</span>
-                                </div>
-                                <div>
-                                    <span className='parking_modal_data_title'>Score: </span>
-                                    <span className='parking_modal_data_content'>{modalState.parkingDetails?.score}</span>
-                                </div>
-                                <div>
-                                    <span className='parking_modal_data_title'>Country: </span>
-                                    <span className='parking_modal_data_content'>{modalState.parkingDetails?.country}</span>
-                                </div>
-                                <div>
-                                    <span className='parking_modal_data_title'>Zip Code: </span>
-                                    <span className='parking_modal_data_content'>{modalState.parkingDetails?.zip_code}</span>
-                                </div>
-                                <div>
-                                    <span className='parking_modal_data_title'>Reviews: </span>
-                                    <span className='parking_modal_data_content'>{modalState.parkingDetails?.review_count}</span>
-                                </div>
-                                <div>
-                                    <span className='parking_modal_data_title'>Open:</span>
-                                    <span className='parking_modal_data_content'>{modalState.parkingDetails?.open ? 'Yes' : 'No'}</span>
-                                </div>
-                                <div>
-                                    <span className='parking_modal_data_title'>Phone: </span>
-                                    <span className='parking_modal_data_content'>{modalState.parkingDetails?.display_phone ? modalState.parkingDetails?.display_phone : 'No registered'}</span>
-                                </div>
+                                {
+                                    dataArray.map( data => {
+                                        return (
+                                            <div key={`parking_modal_${data.title}`}>
+                                                <span className='parking_modal_data_title'>{`${data.title} `} </span>
+                                                <span className='parking_modal_data_content'>{`${data.subtitle}`}</span>
+                                            </div>
+                                        )
+                                    } )
+                                }                       
+                            </div>
+                            <div className='parking_modal_buttons'>
+                                <button className='parking_modal_button_fav'>
+                                    <MdFavoriteBorder/>
+                                    <span>Add</span>
+                                </button>
+                                <a href="tel:+12138919565" className='parking_modal_button_phone'>
+                                    <FiPhone/>
+                                    <span>Contact</span>
+                                </a>
+                                <a className='parking_modal_button_yelp' href={modalState.parkingDetails?.url} target="_blank" rel="nofollow noopener noreferrer">
+                                    <img src={yelpLogo} alt='Yelp_logo'/>
+                                    <span>Visit</span>
+                                </a>
                             </div>
                         </div>
                     </div>

@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { getNearByParkings } from '../../actions/parking_actions'
 
 import './NavBar.css';
+import './NavBarMobile.css';
 
 import { AiFillCar } from 'react-icons/ai';
 

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './Footer.css';
+import './FooterMobile.css';
 
 import yelpLogo from '../../utils/img/footer/yelp_logo.png'
 
@@ -10,7 +11,7 @@ export default function Footer() {
 
             <div className='footer_left_container'>
 
-                <div className='footer_left_sub'>
+                <div className='footer_left_sub footer_made_by'>
                     <span className='bold'>Made By:</span>
                     <span>Christian Vivas</span>
                 </div>

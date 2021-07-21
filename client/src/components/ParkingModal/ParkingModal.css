@@ -106,3 +106,73 @@
     font-style: italic;
     margin-left: 0.5rem;
 }
+
+.parking_modal_buttons{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.parking_modal_buttons > button, .parking_modal_buttons > a{
+    border: 0;
+    padding: 0;
+    margin: 0.5rem 0rem 0rem 0rem;
+    width: 220px;
+    max-height: 220px;
+    height: 45px;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    color: #F3F3F3;
+    font-size: 1rem;
+    font-weight: 400;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;}
+
+.parking_modal_buttons > button:hover, .parking_modal_buttons > a:hover{
+    cursor: pointer;
+    box-shadow: rgba(129, 129, 129, 0.35) 0px 5px 15px;
+}
+
+.parking_modal_buttons img{
+    height: 2rem;
+}
+
+.parking_modal_button_yelp{
+    background-color: #FD0000;
+}
+
+.parking_modal_button_yelp:hover{
+    background-color: #b60101;
+}
+
+.parking_modal_button_yelp img{
+    height: 1.6rem;
+    margin: 0rem 0rem 0.1rem 0.7rem;
+}
+
+.parking_modal_button_yelp > span {
+    margin-left: 2.2rem;
+}
+
+.parking_modal_button_fav, .parking_modal_button_phone{
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #F3F3F3 !important;
+}
+
+.parking_modal_button_fav:hover, .parking_modal_button_phone:hover{
+    background-color: rgba(27, 27, 27, 0.61);
+}
+
+.parking_modal_button_fav svg, .parking_modal_button_phone svg{
+    height: 2rem;
+    width: 2rem;
+    margin-left: 0.7rem;
+}
+
+.parking_modal_button_fav > span {
+    margin-left: 3.5rem;
+}
+
+.parking_modal_button_phone > span {
+    margin-left: 2.4rem;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './HomeBottom.css';
+import './HomeBottomMobile.css';
 
 import { FaSearch } from 'react-icons/fa';
 import { MdFavorite } from 'react-icons/md';

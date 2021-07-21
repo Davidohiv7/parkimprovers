@@ -23,7 +23,7 @@
     align-items: flex-start;
 }
 
-.fp_header_container span{
+.fp_header_title{
     font-size: 2rem;
     font-weight: 300;
     margin-bottom: 1rem;
@@ -73,4 +73,10 @@
 .fp_content_no_results span{
     font-size: 2.5rem;
     font-weight: 300;
+}
+
+.fp_loader_container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
 }

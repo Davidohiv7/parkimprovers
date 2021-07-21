@@ -1,0 +1,6 @@
+@media only screen and (max-width: 900px) {
+
+    .Pagination_container{
+        justify-content: center;
+    }
+}

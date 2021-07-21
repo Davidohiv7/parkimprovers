@@ -5,6 +5,8 @@ import ReactPaginate from "react-paginate";
 import {changePage} from '../../../actions/parking_actions'
 
 import './Pagination.css';
+import './PaginationMobile.css';
+
 
 
 export default function Pagination( ) {

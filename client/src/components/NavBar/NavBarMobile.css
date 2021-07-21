@@ -1,0 +1,19 @@
+@media only screen and (max-width: 800px) {
+
+    .links_container{
+        width: 300px;
+    }
+  
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar_container {
+        flex-direction: column;
+        height: 7rem;
+    }
+
+    .navbar_link {
+        margin-top: 1rem;
+    }
+  
+}

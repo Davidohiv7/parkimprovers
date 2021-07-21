@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './ParkingCards.css';
+import './ParkingCardsMobile.css';
 
 import ParkingCard from './ParkingCard/ParkingCard'
 

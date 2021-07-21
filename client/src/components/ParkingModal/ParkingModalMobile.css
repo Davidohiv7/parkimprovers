@@ -1,0 +1,20 @@
+@media only screen and (max-width: 810px) { 
+    .parking_modal_container {
+        width: 400px;
+        height: 475px;
+    }
+
+    .parking_modal_left {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 450px) { 
+    .parking_modal_container {
+        width: 95%;
+    }
+
+    .parking_modal_left {
+        display: none;
+    }
+}

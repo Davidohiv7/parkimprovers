@@ -1,0 +1,33 @@
+@media only screen and (max-width: 900px) {
+
+    .sb_container {
+        width: 90%;
+    }
+
+    .fp_header_container form{
+        margin: 0;
+        margin-left: 0rem;
+    }
+  
+}
+
+@media only screen and (max-width: 600px) {
+
+    .sb_container {
+        width: 90%;
+    }
+
+    .sb_error_message_container {
+        background-color: #ff0000c0;
+        position: fixed;
+        bottom: 2rem;
+        height: 4rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        padding: 0.5rem;
+        font-size: 1rem !important;
+        font-weight: 300;
+    }
+  
+}

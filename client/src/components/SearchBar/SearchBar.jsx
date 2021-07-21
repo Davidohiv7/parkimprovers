@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useLocation } from "react-router-dom";
 
 import './SearchBar.css';
+import './SearchBarMobile.css';
 
 import { searchParkings } from '../../actions/parking_actions'
 import { searchErrorMessage } from '../../actions/home_actions'
 
 
-export default function SearchBar( { match } ) {
+export default function SearchBar( {} ) {
 
     const dispatch = useDispatch();
     const location = useLocation()
@@ -55,7 +56,7 @@ export default function SearchBar( { match } ) {
 
     return (
         <React.Fragment>
-            <form className='sb_container' onSubmit={handleSubmit}>
+            <form className={`sb_container ${location.pathname === '/search' ? 'sb_container_fp' : undefined}`} onSubmit={handleSubmit}>
                 <input 
                     type="text" 
                     placeholder='Write a location...' 

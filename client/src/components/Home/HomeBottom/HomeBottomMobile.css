@@ -1,0 +1,36 @@
+@media only screen and (max-width: 1200px) {
+
+    .homeBottom_features_container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 1rem;
+        column-gap: 4rem;
+        margin-bottom: 5rem;
+    }
+
+    .homeBottom_title {
+        font-size: 2.7rem;
+        font-weight: 400;
+        margin: 3rem 0rem 1.5rem 0rem;
+    }
+
+    .homeBottom_features_container > div{
+        font-size: 1.7rem;
+    }
+
+    .homeBottom_features_icons {
+        margin-right: 0.7rem;
+    }
+    
+
+}
+
+@media only screen and (max-width: 800px) {
+    .homeBottom_features_container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .homeBottom_features_container > div{
+        font-size: 1.5rem;
+    }
+}
