@@ -16,7 +16,6 @@ export const searchParkings = ( searched_location ) => {
                     searched_location
                 }
             })
-            console.log(response.data)
             dispatch({type: SEARCH_PARKING, payload: response.data});
             dispatch(setLoading(false));
         } catch (error) {
@@ -43,7 +42,6 @@ export const changePage = ( searched_location, page ) => {
                     offset: page,
                 }
             })
-            console.log(response.data)
             dispatch({type: CHANGE_PAGE, payload: response.data});
             // dispatch(setLoading(false));
         } catch (error) {

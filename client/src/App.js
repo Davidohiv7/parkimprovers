@@ -7,6 +7,7 @@ import NavBar from './components/NavBar/NavBar'
 import Footer from './components/Footer/Footer'
 import Home from './components/Home/Home'
 import FindParkings from './components/FindParkings/FindParkings'
+import ParkingModal from './components/ParkingModal/ParkingModal'
 import Favourites from './components/Favourites/Favourites'
 
 function App() {
@@ -26,6 +27,11 @@ function App() {
       <Route
         path='/search'
         component={FindParkings}
+      />
+
+      <Route
+        path='/search/:id'
+        component={ParkingModal}
       />
 
       <Route

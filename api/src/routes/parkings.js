@@ -5,7 +5,7 @@ const router = Router();
 
 var { get10LowerParkings } = require('../utils/array');
 
-const { YELP_SEARCH_URL_PARKING, YELP_API_KEY, YELP_SEARCH_LIMIT, YELP_SEARCH_TERM, YELP_SEARCH_SORT_BY } = process.env
+const { YELP_SEARCH_URL_PARKING, YELP_SEARCH_URL_DETAILS, YELP_API_KEY, YELP_SEARCH_LIMIT, YELP_SEARCH_TERM, YELP_SEARCH_SORT_BY } = process.env
 
 
 
@@ -132,6 +132,46 @@ router.get("/nearby", async (req, res) => {
         const searched_location = locations[0]
 
         res.send( { parkings: filteredParkings, total, pages, page, searched_location, locations } )
+
+    } catch (error) {
+        console.log(error)
+        res.status(400).send( {message: 'We couldn´t find any parking in that location, please try again'} )
+    }
+
+});
+
+router.get("/details", async (req, res) => {
+
+    let { id } = req.query
+
+    try {
+        const response = await axios.get(YELP_SEARCH_URL_DETAILS + id, { 
+            headers: {
+                Authorization: 'Bearer ' + YELP_API_KEY,
+              }
+        });
+
+        const score = Math.round((response.data.review_count * response.data.rating) / (response.data.review_count +1) * 10) / 10
+
+        const businessDetails = {
+            id: response.data.id,
+            name: response.data.name,
+            url: response.data.url,
+            rating: response.data.rating,
+            review_count: response.data.review_count,
+            score,
+            phone: response.data.phone,
+            display_phone: response.data.display_phone,
+            city: response.data.location.city,
+            zip_code: response.data.location.zip_code,
+            country: response.data.location.country,
+            state: response.data.location.state,
+            photos: response.data.photos,
+            open: !response.data.is_closed,
+        }
+        
+        res.send(businessDetails)
+        // res.send(response.data)
 
     } catch (error) {
         console.log(error)

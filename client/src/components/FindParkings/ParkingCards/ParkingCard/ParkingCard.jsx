@@ -1,4 +1,6 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
+
 
 import './ParkingCard.css';
 
@@ -7,9 +9,16 @@ import yelp_logo from '../../../../utils/img/find/yelp_logo.svg'
 
 export default function ParkingCard( { parking } ) {
 
+    const history = useHistory()
+
+    function handleCardClick(e) {
+        if(e.target.alt !== 'yelp_logo') {
+            history.push(`/search/${parking.id}`)
+        }
+    }
 
     return (
-        <div className='parking_card_container'>
+        <div className='parking_card_container' onClick={handleCardClick}>
             <img src={parking.image_url || noImage} alt={parking.name}/>
             <div className='parking_card_data_container'>
                 <span>{parking.name}</span>
@@ -35,8 +44,7 @@ export default function ParkingCard( { parking } ) {
                         </div>
                     </div>
                     
-                    <a href={parking.url}  target="_blank" rel="nofollow noopener noreferrer">
-
+                    <a href={parking.url}  className='yelp_logo' target="_blank" rel="nofollow noopener noreferrer">
                         <img src={yelp_logo} alt="yelp_logo"/>
                     </a>
                 </div>

@@ -12,7 +12,7 @@ export default function ParkingCards( { parkings } ) {
             {
                 parkings.map( parking => {
                     return (
-                        <ParkingCard parking={parking}/>
+                        <ParkingCard key={parking.id} parking={parking}/>
                     )
                 })
             }

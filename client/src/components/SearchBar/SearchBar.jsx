@@ -4,7 +4,6 @@ import { useHistory, useLocation } from "react-router-dom";
 
 import './SearchBar.css';
 
-
 import { searchParkings } from '../../actions/parking_actions'
 import { searchErrorMessage } from '../../actions/home_actions'
 
@@ -55,8 +54,8 @@ export default function SearchBar( { match } ) {
     }
 
     return (
+        <React.Fragment>
             <form className='sb_container' onSubmit={handleSubmit}>
-
                 <input 
                     type="text" 
                     placeholder='Write a location...' 
@@ -83,7 +82,8 @@ export default function SearchBar( { match } ) {
                     </div> :
                     undefined
                 }
-
+                
             </form>
+        </React.Fragment>
         );
   };
