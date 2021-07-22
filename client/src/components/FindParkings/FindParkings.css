@@ -41,6 +41,9 @@
 
 .fp_content_container {
     width: 90%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .fp_location_pagination_container {

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { SEARCH_PARKING, SEARCH_PARKING_NO_RESULTS, CHANGE_PAGE } from '../actions_types/parking_actions_types'
+import { SEARCH_PARKING, SEARCH_PARKING_NO_RESULTS, CHANGE_PAGE, CHANGE_PAGE_LOADING } from '../actions_types/parking_actions_types'
 
 import { searchErrorMessage, setLoading } from '../actions/home_actions'
 
@@ -32,9 +32,16 @@ export const searchParkings = ( searched_location ) => {
     }
 }
 
+export const setLoadingPageChange = ( bool ) => {
+    return {
+        type: CHANGE_PAGE_LOADING, 
+        payload: bool
+    }
+}
+
 export const changePage = ( searched_location, page ) => {
     return async (dispatch) => {
-        // dispatch(setLoading(true));
+        dispatch(setLoadingPageChange(true));
         try {
             const response = await axios.get(apiURL + "/parkings", { 
                 params: {
@@ -43,7 +50,7 @@ export const changePage = ( searched_location, page ) => {
                 }
             })
             dispatch({type: CHANGE_PAGE, payload: response.data});
-            // dispatch(setLoading(false));
+            dispatch(setLoadingPageChange(false));
         } catch (error) {
             dispatch({type: SEARCH_PARKING_NO_RESULTS});
             const message = error.response?.data.message
@@ -53,7 +60,7 @@ export const changePage = ( searched_location, page ) => {
             if(!message) {
                 dispatch(searchErrorMessage('Sorry we couldn`t connect to the server'));
             }
-            // dispatch(setLoading(false));
+            dispatch(setLoadingPageChange(false));
         }
     }
 }
@@ -74,3 +81,4 @@ export const getNearByParkings = ( position ) => {
         }
     }
 }
+
