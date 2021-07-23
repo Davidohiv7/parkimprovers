@@ -12,7 +12,7 @@
     margin: 5rem 0rem 2rem 0rem;
 }
 
-.homeBottom_features_container{
+.homeBottom_features_container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 1rem;
