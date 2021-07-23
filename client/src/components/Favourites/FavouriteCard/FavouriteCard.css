@@ -1,0 +1,82 @@
+
+.fav_card_container{
+    background-color: #f3f3f331;
+    width: 500px;
+    height: 120px;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fav_card_container:hover {
+    cursor: pointer;
+    transform: scale(1.02, 1.02);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 28px 55px 34px;
+}
+
+.fav_card_left_container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.fav_card_picture {
+    height: 80%;
+    width: 96px;
+    object-fit: cover;
+    margin-left: 12px;
+}
+
+.fav_card_left_data_container{
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.fav_card_name{
+    font-weight: 400;
+    height: 3rem;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+.fav_card_city{
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+
+.fav_card_right_container {
+    height: 100%;
+    width: 40px;
+    background-color: #F8C342;
+    border-radius: 0rem 0.5rem 0.5rem 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fav_card_right_container a{
+    color: #F3F3F3;
+}
+
+.fav_card_right_container svg{
+    filter: drop-shadow( 2px 2px 4px rgba(0, 0, 0, 1));
+    margin: 1rem 0rem;
+    width: 2rem;
+    height: 1.2rem;
+}
+
+.fav_card_right_container svg:hover{
+    filter: drop-shadow( 2px 2px 14px rgba(0, 0, 0, 1));
+    margin: 1rem 0rem;
+    width: 2rem;
+    height: 1.2rem;
+}
+
+

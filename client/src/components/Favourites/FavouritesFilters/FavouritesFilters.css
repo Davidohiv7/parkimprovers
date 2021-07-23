@@ -1,0 +1,46 @@
+.filters_container{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.filters_sort_title {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.filters_sort_title:hover {
+    cursor: pointer;
+}
+
+.filters_sort_title > svg{
+    margin-left: 0.5rem;
+}
+
+@keyframes appear {
+    0% {height:0}
+    100% {height: 1rem;}
+  }
+
+.filters_sort_options {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.filters_sort_options li{
+    cursor: pointer;
+    animation: appear linear 0.1s;
+}
+
+.filters_sort_options li:hover{
+    cursor: pointer;
+}
+
+.filters_sort_options_selected {
+    color: #F8C342;
+    text-shadow: 0 0 10px #F3F3F3;
+}

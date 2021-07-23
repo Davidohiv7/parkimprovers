@@ -1,0 +1,19 @@
+
+.favp_pagination_container {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 1.2rem 0rem 0rem 0rem;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.favp_pagination_container li{
+    margin: 0rem 0.3rem;
+}
+
+.favp_pagination_container li:hover{
+    cursor: pointer;
+    color: #F8C342;
+    text-shadow: 0 0 10px #F3F3F3;
+}

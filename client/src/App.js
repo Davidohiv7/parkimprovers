@@ -35,6 +35,11 @@ function App() {
       />
 
       <Route
+        path='/favourites/:id'
+        component={ParkingModal}
+      />  
+
+      <Route
         path='/favourites'
         component={Favourites}
       />

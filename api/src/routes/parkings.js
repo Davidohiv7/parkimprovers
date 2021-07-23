@@ -35,7 +35,7 @@ router.get("/", async (req, res) => {
         let pages = Math.ceil( response.data.total / YELP_SEARCH_LIMIT)
 
         if(pages > 1) {
-            pages = pages -1
+            pages = pages - 1
         }
 
         const lower10parkings = get10LowerParkings(businesses)
@@ -62,7 +62,7 @@ router.get("/", async (req, res) => {
             }
         })
 
-        const page = offset + 1
+        const page = Number(offset)
 
         res.send( { parkings: filteredParkings, total, pages, page, searched_location, locations } )
 
@@ -127,7 +127,7 @@ router.get("/nearby", async (req, res) => {
             }
         })
 
-        const page = offset + 1
+        const page = Number(offset)
 
         const searched_location = locations[0]
 
@@ -161,6 +161,7 @@ router.get("/details", async (req, res) => {
             score,
             phone: response.data.phone,
             display_phone: response.data.display_phone,
+            address: response.data.location.address1,
             city: response.data.location.city,
             zip_code: response.data.location.zip_code,
             country: response.data.location.country,

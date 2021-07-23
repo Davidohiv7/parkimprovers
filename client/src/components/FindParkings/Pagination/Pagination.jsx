@@ -12,7 +12,7 @@ import './PaginationMobile.css';
 export default function Pagination( ) {
 
     const dispatch = useDispatch();
-    const { total_pages, searched_location } = useSelector((state) => ({ ...state.parkingsReducer }))
+    const { total_pages, searched_location, page } = useSelector((state) => ({ ...state.parkingsReducer }))
 
 
     function pageChangeHandler(page) {
@@ -35,6 +35,7 @@ export default function Pagination( ) {
             previousClassName={'next_prev'}
             nextClassName={'next_prev'}
             disabledClassName={'disabled_button'}
+            forcePage={page}
         />
     );
 };
