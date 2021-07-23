@@ -12,7 +12,7 @@
     margin: 5rem 0rem 2rem 0rem;
 }
 
-.homeBottom_features_container {
+.homeBottom_features_container{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 1rem;
@@ -20,7 +20,7 @@
     margin-bottom: 5rem;
 }
 
-.homeBottom_features_container > div{
+.homeBottom_features_container > div{
     justify-self: start;
     display: flex;
     align-items: center;
@@ -28,7 +28,7 @@
     color: #695b37;
 }
 
-.homeBottom_features_container > div:hover {
+.homeBottom_features_container > div:hover {
     color: #fd9800;
     text-shadow: 0 0 10px #919191;
 }

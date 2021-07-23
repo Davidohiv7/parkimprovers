@@ -15,7 +15,7 @@ export default function HomeBottom() {
 
             <span className='homeBottom_title'> Here You Can ... </span>
 
-            <div className='homeBottom_features_container '>
+            <div className='homeBottom_features_container'>
 
                 <div>
                     <FaSearch className='homeBottom_features_icons'/>
