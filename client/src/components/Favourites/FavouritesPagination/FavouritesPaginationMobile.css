@@ -1,0 +1,14 @@
+
+@media only screen and (max-width: 900px) {
+
+    .favp_pagination_container {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        margin: 0.5rem 0rem;
+        flex-grow: 1;
+        justify-content: center;
+    }
+
+}
+

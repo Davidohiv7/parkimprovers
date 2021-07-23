@@ -1,0 +1,17 @@
+
+
+@media only screen and (max-width: 600px) {
+
+    .message_container {
+        position: fixed;
+        bottom: 2rem;
+        height: 4rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        padding: 0.5rem;
+        font-size: 1rem !important;
+        font-weight: 300;
+    }
+
+}

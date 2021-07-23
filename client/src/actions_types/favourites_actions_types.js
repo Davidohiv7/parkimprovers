@@ -1,0 +1,1 @@
+export const GET_FAV = 'GET_FAV';

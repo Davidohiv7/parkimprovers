@@ -1,4 +1,4 @@
-import { SEARCH_PARKING, SEARCH_PARKING_NO_RESULTS, CHANGE_PAGE } from '../actions_types/parking_actions_types'
+import { SEARCH_PARKING, SEARCH_PARKING_NO_RESULTS, CHANGE_PAGE, CHANGE_PAGE_LOADING } from '../actions_types/parking_actions_types'
 
 const initialState = {
     parkings: [],
@@ -6,6 +6,7 @@ const initialState = {
     total_pages: null,
     locations: null,
     searched_location: null,
+    loadingChangePage: false,
 };
 
 const parkingsReducer = (state = initialState, action = {}) => {
@@ -28,6 +29,12 @@ const parkingsReducer = (state = initialState, action = {}) => {
                 total_pages: action.payload.pages,
                 locations: action.payload.locations,
                 searched_location: action.payload.searched_location,
+            }
+        }
+        case CHANGE_PAGE_LOADING: {
+            return {
+                ...state,
+                loadingChangePage: action.payload,
             }
         }
         case SEARCH_PARKING_NO_RESULTS: {

@@ -1,0 +1,23 @@
+
+@media only screen and (max-width: 900px) {
+    .fav_card_container{
+        width: 450px;
+    }
+
+    .fav_card_name{
+        font-weight: 300;
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    .fav_card_container{
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .fav_card_name{
+        font-weight: 300;
+        font-size: 1rem;
+    }
+}

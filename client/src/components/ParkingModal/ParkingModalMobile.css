@@ -1,7 +1,7 @@
 @media only screen and (max-width: 810px) { 
     .parking_modal_container {
         width: 400px;
-        height: 475px;
+        height: 500px;
     }
 
     .parking_modal_left {
@@ -16,5 +16,11 @@
 
     .parking_modal_left {
         display: none;
+    }
+
+    .parking_modal_data > div{
+        width: 100%;
+        display: flex;
+        margin-left: 2rem;
     }
 }
