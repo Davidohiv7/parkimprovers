@@ -8,11 +8,10 @@ import './FavouriteCardMobile.css';
 
 import no_image from '../../../utils/img/fav/no_image.png'
 
-import { FiPhone } from 'react-icons/fi';
+import { FiPhone, FiPhoneMissed } from 'react-icons/fi';
 import { AiOutlineDelete } from 'react-icons/ai';
 
-
-import { deleteFavouriteLocal, getFavouritesLocal } from '../../../utils/functions/favourites'
+import { deleteFavouriteLocal, getFavouritesLocal } from '../../../utils/functions/favourites' 
 
 
 export default function FavouriteCard( { parking } ) {
@@ -74,10 +73,14 @@ export default function FavouriteCard( { parking } ) {
             </div>
             <div className='fav_card_right_container'>
                 
-                <a href={`tel:${parking.phone}`}>
-                    <FiPhone/>
-                </a>
-
+                {
+                    parking.phone ?
+                    <a href={`tel:${parking.phone}`}>
+                        <FiPhone/>
+                    </a> :
+                    <FiPhoneMissed className='fav_phone_button_disabled'/>
+                }
+            
                 <AiOutlineDelete onClick={handleDeleteClick}/>
 
             </div>

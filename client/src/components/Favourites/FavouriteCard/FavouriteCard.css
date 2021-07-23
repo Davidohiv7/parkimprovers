@@ -79,4 +79,10 @@
     height: 1.2rem;
 }
 
+.fav_phone_button_disabled {
+    cursor: default;
+    filter: drop-shadow( 2px 2px 4px rgba(0, 0, 0, 1)) !important;
+    color: #c5c2c2;
+}
+
 
