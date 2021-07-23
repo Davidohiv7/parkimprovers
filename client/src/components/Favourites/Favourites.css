@@ -3,6 +3,7 @@
     flex-grow: 1;
     align-items: flex-start;
     justify-content: space-evenly;
+    margin-top: 2.5rem;
 }
 
 .fav_left_container, .fav_right_container {
@@ -18,4 +19,17 @@
 .fav_right_container {
     display: flex;
     margin-bottom: 2rem;
+    align-items: center;
+}
+
+.fav_no_results {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    font-weight: 400;
+    flex-grow: 1;
+    max-width: 75%;
+}
+
+.fav_no_results > span{
+    color: #F8C342;
 }

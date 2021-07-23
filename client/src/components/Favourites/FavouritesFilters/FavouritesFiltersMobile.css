@@ -1,5 +1,23 @@
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 900px) {
+    .filters_container{
+        font-size: 0.9rem;
+    }
 
+    .filters_sort_title {
+        margin-top: 0rem;
+    }
+
+    .filters_sort_options {
+        margin: 0rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
+
+    .filters_sort_options li{
+        justify-self: start;
+    }
+    
 }
 

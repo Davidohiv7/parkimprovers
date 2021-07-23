@@ -111,7 +111,7 @@ export default function FavouritesFilters( ) {
                                         {
                                             filter.options.map((option, i) => {
                                                 return (
-                                                    <li className={option.text === favouritesStoreData.filter || (option.parameter === favouritesStoreData.parameter && option.type === favouritesStoreData.type) ? 'filters_sort_options_selected' : undefined} key={`${option.text}_i`} onClick={() => handleFilterSort(option.parameter, option.type, option.text)} >{`- ${option.text}`}</li>
+                                                    <li className={option.text === favouritesStoreData.filter || (option.parameter === favouritesStoreData.parameter && option.type === favouritesStoreData.type) ? 'filters_sort_options_selected' : undefined} key={`${option.text}_i`} onClick={() => handleFilterSort(option.parameter, option.type, option.text)} >{`${option.text}`}</li>
                                                 )
                                             })
                                         }
@@ -125,6 +125,6 @@ export default function FavouritesFilters( ) {
                 })
             }
             
-        </div>
+        </div> 
     )
 };

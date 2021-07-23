@@ -28,7 +28,6 @@ export default function FavouritesPagination( ) {
     }
 
 
-
     return (
         <ReactPaginate
             containerClassName='favp_pagination_container'
@@ -43,7 +42,7 @@ export default function FavouritesPagination( ) {
             activeClassName={'active_page'}
             previousClassName={'next_prev'}
             nextClassName={'next_prev'}
-            disabledClassName={'disabled_button'}
-        />
+            disabledClassName={'disabled_button'} 
+        /> 
     )
 };

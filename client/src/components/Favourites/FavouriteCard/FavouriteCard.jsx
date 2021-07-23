@@ -69,7 +69,7 @@ export default function FavouriteCard( { parking } ) {
                 <div className='fav_card_left_data_container'>
                     <span className='fav_card_name'>{parking.name}</span>
                     <span className='fav_card_city'>{parking.city}</span>
-                    <span className='fav_card_city'>{parking.score}</span>
+                    <span className='fav_card_city'>Score: {parking.score}</span>
                 </div>
             </div>
             <div className='fav_card_right_container'>
