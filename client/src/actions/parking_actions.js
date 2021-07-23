@@ -49,7 +49,6 @@ export const changePage = ( searched_location, page ) => {
                     offset: page,
                 }
             })
-            console.log(response.data)
             dispatch({type: CHANGE_PAGE, payload: response.data});
             dispatch(setLoadingPageChange(false));
         } catch (error) {

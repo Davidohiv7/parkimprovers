@@ -171,10 +171,8 @@ router.get("/details", async (req, res) => {
         }
         
         res.send(businessDetails)
-        // res.send(response.data)
 
     } catch (error) {
-        console.log(error)
         res.status(400).send( {message: 'We couldn´t find any parking in that location, please try again'} )
     }
 

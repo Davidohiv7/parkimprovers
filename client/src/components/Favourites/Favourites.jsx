@@ -30,29 +30,27 @@ export default function Favourites() {
 
     return (
         <div className='fav_container'>
-            {   
-                favouritesStoreData.toShow.length > 0 ?
-                <React.Fragment>
-                    <div className='fav_left_container'>
-                        <span>Favourties parkings: </span> 
-                        <FavouritesSearchBar/>
-                        <FavouritesFilters/>
-                    </div>
+            <div className='fav_left_container'>
+                <span>Favourties parkings: </span> 
+                <FavouritesSearchBar/>
+                <FavouritesFilters/>
+            </div>
+                {   
+                    favouritesStoreData.toShow.length > 0 ?
                     <div className='fav_right_container'>
                         <FavouritesPagination/>
-                            {
+                        {
                             favouritesStoreData.toShow.map(parking => {
                                 return (
                                     <FavouriteCard key={`${parking.name}`} parking={parking}/>
                                 )})
-                            }
-                    </div>
-                </React.Fragment> :
-                <div className='fav_no_results'>
+                        }                   
+                    </div> :
+                    <div className='fav_no_results'>
                     No <span>parkings</span> found, try adding new parkings to favourites
                 </div>
-            }
-            
+
+                }
         </div>
     );
 };

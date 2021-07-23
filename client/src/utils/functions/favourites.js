@@ -163,6 +163,16 @@ export function getFavouritesLocal( data ) {
 
     let favourites = JSON.parse(localStorage.getItem('favourites'))
 
+    if(!favourites) {
+        favourites = {
+            locations:[],
+            parkings:[],
+            total_pages:0
+        }
+        const newFavourites = JSON.stringify(favourites)
+        localStorage.setItem('favourites', newFavourites)
+    }
+
     if(favourites) {
 
         if(data.searchWord) {
@@ -189,5 +199,6 @@ export function getFavouritesLocal( data ) {
         }
 
     }
+
 
 }

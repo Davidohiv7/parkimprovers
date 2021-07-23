@@ -180,3 +180,17 @@
 .parking_modal_button_phone > span {
     margin-left: 2.4rem;
 }
+
+.parking_modal_button_phone_disabled {
+    background-color: rgba(90, 89, 89, 0.432);
+    color: rgba(90, 89, 89, 0.432) !important;
+    border: 1px solid rgba(90, 89, 89, 0.432) !important;
+}
+
+.parking_modal_button_phone_disabled:hover {
+    cursor: default !important;
+    background-color: rgba(90, 89, 89, 0.432);
+    color: rgba(90, 89, 89, 0.432) !important;
+    border: 1px solid rgba(90, 89, 89, 0.432) !important;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px !important;
+}

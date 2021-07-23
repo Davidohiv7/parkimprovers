@@ -89,7 +89,10 @@ export default function ParkingModal( { match } ) {
             text: `${modalState.parkingDetails.name} was successfully added to favourites`,
             color: 'green',
         })
-        const newFavourites = getFavouritesLocal(favouritesStoreData)
+        const newFavourites = getFavouritesLocal({
+            ...favouritesStoreData,
+            searchWord: '',
+        })
         dispatch(getFavourite(newFavourites))
     }
 
@@ -148,10 +151,19 @@ export default function ParkingModal( { match } ) {
                                     <MdFavoriteBorder/>
                                     <span>Add</span>
                                 </button>
-                                <a href={`tel:${modalState.parkingDetails?.phone}`} className='parking_modal_button_phone'>
-                                    <FiPhone/>
-                                    <span>Contact</span>
-                                </a>
+                                {
+                                    modalState.parkingDetails?.phone ?
+                                    <a href={`tel:${modalState.parkingDetails?.phone}`} className='parking_modal_button_phone'>
+                                        <FiPhone/>
+                                        <span>Contact</span> 
+                                    </a> 
+                                    :
+                                    <button className='parking_modal_button_phone parking_modal_button_phone_disabled'>
+                                        <FiPhone/>
+                                        <span>Contact</span>
+                                    </button>
+                                }
+                                
                                 <a className='parking_modal_button_yelp' href={modalState.parkingDetails?.url} target="_blank" rel="nofollow noopener noreferrer">
                                     <img src={yelpLogo} alt='Yelp_logo'/>
                                     <span>Visit</span>
