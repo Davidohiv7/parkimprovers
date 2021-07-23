@@ -1,6 +1,6 @@
 @media only screen and (max-width: 1200px) {
-
-    .homeBottom_features_container{
+  
+    .homeBottom_features_container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         row-gap: 1rem;

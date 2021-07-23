@@ -2,7 +2,8 @@ import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 
-import { getNearByParkings } from '../../actions/parking_actions'
+// import { getNearByParkings } from '../../actions/parking_actions'
+import { searchParkings } from '../../actions/parking_actions'
 
 import './NavBar.css';
 import './NavBarMobile.css';
@@ -17,13 +18,15 @@ export default function NavBar() {
 
     useEffect(
         () => {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                const currentPosition = {
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude,
-                }
-                dispatch(getNearByParkings(currentPosition))
-            })
+            //Detect nearby parkings, requires https to run in production
+            // navigator.geolocation.getCurrentPosition(function(position) {
+            //     const currentPosition = {
+            //         latitude: position.coords.latitude,
+            //         longitude: position.coords.longitude,
+            //     }
+            //     dispatch(getNearByParkings(currentPosition))
+            // })
+            dispatch(searchParkings('San Francisco'))
         },
     // eslint-disable-next-line
     []);
